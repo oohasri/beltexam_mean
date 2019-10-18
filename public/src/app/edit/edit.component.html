@@ -1,7 +1,9 @@
     <div>
-        <div *ngIf="isError">        
-            <h4>{{errors.name.message}}</h4>
-        </div>
+            <div *ngIf="isError">        
+                    <h4 *ngIf="errors.name">{{errors.name.message}}</h4>
+                    <h4 *ngIf="errors.qty">{{errors.qty.message}}</h4>
+                    <h4 *ngIf="errors.price">{{errors.price.message}}</h4>
+            </div>
         <form id="editForm" (submit)="edit(product._id, product)">
             <h3>Update Product</h3>
             <div *ngIf=(!name.valid)>{{ name.errors | json }}</div>
@@ -24,7 +26,7 @@
                         <td><label>Qty: </label></td>
                         <td><input type="Number" name="qty" min="0" max="5"
                             required 
-                            minlength="1" 
+                            minlength="0" 
                             maxlength="5"
                             value="{{product.qty}}" 
                             [(ngModel)]="product.qty"
@@ -34,7 +36,7 @@
                         <td><label>Price: </label></td>
                         <td><input type="Number" name="price" min="0" max="5"
                             required 
-                            minlength="1" 
+                            minlength="0" 
                             maxlength="5"
                             value="{{product.price}}" 
                             [(ngModel)]="product.price"

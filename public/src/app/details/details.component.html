@@ -16,7 +16,9 @@
             <td></td>
             <td>
                 <button class="button" [routerLink]="['/display']">Back</button>
-                <button id="myBtn" class="button" (click)="onDelete(product._id)">Delete</button>
+                
+                    <button id="myBtn" [disabled]="!product.qty==0" class="button" (click)="onDelete(product._id)">Delete</button>
+             
             </td>
             
         </tr>

@@ -1,7 +1,9 @@
 
 <div>
         <div *ngIf="isError">        
-                <h4>{{errors.name.message}}</h4>
+                <h4 *ngIf="errors.name">{{errors.name.message}}</h4>
+                <h4 *ngIf="errors.qty.message">{{errors.qty.message}}</h4>
+                <h4 *ngIf="errors.price.message">{{errors.price.message}}</h4>
         </div>
     <form (submit)="onCreate()">
         <h3>New Product</h3>
